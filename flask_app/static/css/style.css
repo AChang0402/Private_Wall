@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Calibri";
+}
+
+h2 {
+    text-align:center;
+}
+
+.body-borders {
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-top: 2px solid black;
+    margin: 20px auto 0px;
+    width: fit-content;
+}
+
+.flex-container-fixed {
+    width: 996px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 10px 0px;
+    border-bottom: 2px black solid;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-container {
+    width: fit-content;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    gap: 100px;
+}
+
+.m-t {
+    margin: 20px auto 0px;
+    width: fit-content;
+}
+
+.button {
+    padding: 2px 5px;
+    font-size: 16px;
+}
+
+.m-s {
+    margin: 0 8px;
+}
+
+.ASC {
+    align-self: center;
+}
+
+.m0auto {
+    margin: 0 auto;
+}
+
+.TAC {
+    text-align: center;
+}
+
+.header-text{
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.flex-1{
+    flex: 1;
+}
+
+.box-content {
+    padding:20px;
+}
+
+.messages-content {
+    width: inherit;
+    display:flex;
+    justify-content: space-between;
+    align-items:center
+}
+
+.send-messages-content {
+    display: flex;
+    align-items:flex-start;
+    justify-content: end;
+    gap: 10px;
+    width: inherit
+}
+
+.underline{
+    text-decoration: underline
+}
+
+.img-delete {
+    width: 20px;
+    border: 1px solid black;
+    padding: 3px;
+}
+
+.set-font-size * {
+    font-size: 18px;
+}
+
+.indent {
+    margin-left: 50px;
+}
+
+.label {
+    width: 125px;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.border-r {
+    border-right: 1px solid black;
+}
+
+.border-l {
+    border-left: 1px solid black
+}
+
+.green {
+    color: forestgreen
+}

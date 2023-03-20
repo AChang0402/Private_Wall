@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class = "flex-container m-t">
+        <div>
+            {% with messages = get_flashed_messages(category_filter=["reg"]) %}
+                {% for message in messages %}
+                <p>{{ message }}</p>
+                {% endfor %}
+            {% endwith %}
+            <h2 class = "m-t">Register</h2>
+            <form action="/register" method="post">
+                <div class="m-t">
+                    <label for="first_name">First Name:</label><br>
+                    <input type="text" name="first_name" id="first_name">
+                </div>
+                <div class="m-t">
+                    <label for="last_name">Last Name:</label><br>
+                    <input type="text" name="last_name" id="last_name">
+                </div>
+                <div class="m-t">
+                    <label for="email">Email:</label><br>
+                    <input type="text" name="email" id="email">
+                </div>
+                <div class="m-t">
+                    <label for="phone_number">Phone Number:</label><br>
+                    <input type="text" name="phone_number" id="phone_number">
+                </div>
+                <div class="m-t">
+                    <label for="password">Password:</label><br>
+                    <input type="password" name="password" id="password">
+                </div>
+                <div class="m-t">
+                    <label for="password_confirm">Confirm Password:</label><br>
+                    <input type="password" name="password_confirm" id="password_confirm">
+                </div>
+                <div class="TAC">
+                    <button class="button m-t">Register</button>
+                </div>
+            </form>
+        </div>
+        <div>
+            {% with messages = get_flashed_messages(category_filter=["login"]) %}
+                {% for message in messages %}
+                <p>{{ message }}</p>
+                {% endfor %}
+            {% endwith %}
+            <h2 class = "m-t">Login</h2>
+            <form action="/login" method="post">
+                <div class="m-t">
+                    <label for="email-login">Email: </label><br>
+                    <input type="text" name="email" id="email-login">
+                </div>
+                <div class="m-t">
+                    <label for="password-login">Password: </label><br>
+                    <input type="password" name="password" id="password-login">
+                </div>
+                <div class = "TAC">
+                    <button class="button m-t">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

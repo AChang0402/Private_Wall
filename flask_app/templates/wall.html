@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wall</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class = "body-borders">
+    <div class="flex-container-fixed">
+        <p class = "header-text m-s">CodingDojo WALL</p>
+        <div class = "flex">
+            <p class = "header-text m-s">Hello, {{current_user['first_name']}}!</p>
+            <div>
+                <a href="/logout"><button class="button m-s">Logout</button></a>
+            </div>
+        </div>
+    </div>
+    <div class = "flex-container-fixed set-font-size">
+        <div class="flex-1 box-content border-r">
+            <p class="underline"><span class="green bold">{{ current_user['messages_received_from']|length }}</span> Message(s) for you: </p>
+
+            {% for i in range(current_user['messages_received_from']|length) %}
+            <div class = "messages-content m-t">
+                <div>
+                    <p>{{ current_user['messages_received_from'][i]['first_name']}} {{ current_user['messages_received_from'][i]['last_name']}} said:</p>
+                    <p class="indent">"{{ current_user['messages_received'][i]['message_text']}}"</p>
+                </div>
+                <a href="/deletemessage/{{ current_user['messages_received'][i]['id'] }}">
+                    <img href="/deletemessage/{{ current_user['messages_received'][i]['id'] }}" class = "img-delete" src="{{ url_for('static', filename='img/trash.png') }}" alt="delete">
+                </a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="flex-1 box-content border-l">
+            <p class="underline">Send Messages: </p>
+            <p class = green>You have sent {{ sent_messages|length }} message(s) so far</p>
+            <div class = "m-t">
+                {% with messages = get_flashed_messages(category_filter=["message"]) %}
+                    {% for message in messages %}
+                        <p class = "bold">{{ message }}</p>
+                    {% endfor %}
+                {% endwith %}
+            </div>
+            {% for user in other_users %}
+            <form action="/sendmessage/{{ session['id'] }}/{{ user['id'] }}" method="post">
+                <div class = "send-messages-content m-t">
+                    <label for="message" class="label">{{user['first_name']}} {{user['last_name']}}</label>
+                    <textarea name="message_text" id="message" cols="30" rows="2"></textarea>
+                    <button>Send</button>
+                </div>
+            </form>
+            {% endfor %}
+        </div>
+    </div>
+    </div>
+</body>
+</html>
